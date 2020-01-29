@@ -1,0 +1,12 @@
+
+Install spnav with pip. Comment the two lines that crash in its __init__ if it fails to load.
+
+Install uinput with pip, and load the kernel module modprobe uinput
+
+Start the spacenavd service.
+
+Execute the bridge: python bind.py
+
+Tested with Python 3.8.1
+
+For KSP, the bridge must be started before the game, else it doesn't register
