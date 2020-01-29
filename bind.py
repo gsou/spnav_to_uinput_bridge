@@ -2,10 +2,12 @@
 from spnav import *
 import uinput
 
-# In KSP set to 1 sensitivity and 0.05 of deadzone
+# In KSP set to 1 sensitivity and 0.05 of deadzone for each axis
 
-# Button mapping on spacepilot pro
+# Button mapping on the spacepilot pro
+# For other controllers, use the log output of this program to figure out which button has which id
 butmap = [0,1,2,4,5,8,10,12,13,14,15,16,22,23,24,25,26,27,28,29,30] # 21 buttons w/ long press
+# The uinput button that is triggered by the mouse buttons
 buts = [
     uinput.BTN_SELECT, # Menu
     uinput.BTN_START, # Fit
@@ -38,14 +40,17 @@ buts = [
 
 axis = [uinput.ABS_X, uinput.ABS_Y, uinput.ABS_Z, uinput.ABS_RX, uinput.ABS_RY, uinput.ABS_RZ]
 
-# May depend on mouse 
+# May depend on mouse
 axeMax = 500
 def factor(n):
     return int(32767 * n / 500)
 
-print("Connecting uinput device")
-print("Starting Joystick emulation")
+
+####################################################################3
+
+print("Connecting to spacenav")
 spnav_open()
+print("Connecting uinput device")
 with uinput.Device(axis + buts) as device:
     try:
         while True:
@@ -54,12 +59,12 @@ with uinput.Device(axis + buts) as device:
             if event.ev_type == 1: # Motion
                 trans = event.translation
                 rot = event.rotation
-                device.emit(axis[0], factor(trans[0])) # Side (joy0.0)
-                device.emit(axis[1], factor(trans[1])) # Up down (j)
-                device.emit(axis[2], factor(trans[2])) # Forward
-                device.emit(axis[3], factor(rot[0]))# Rot Pitch
-                device.emit(axis[4], factor(rot[1]))# Roll (inverted)
-                device.emit(axis[5], factor(rot[2]))# Yaw 
+                device.emit(axis[0], factor(trans[0])) # Side (0)
+                device.emit(axis[1], factor(trans[1])) # Up down (1)
+                device.emit(axis[2], factor(trans[2])) # Forward (2)
+                device.emit(axis[3], factor(rot[0]))# Rot Pitch (3)
+                device.emit(axis[4], factor(rot[1]))# Roll (inverted) (4)
+                device.emit(axis[5], factor(rot[2]))# Yaw  (5)
             elif event.ev_type == 2: # Button
                 bnum = event.bnum
                 state = event.press

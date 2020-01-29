@@ -1,5 +1,11 @@
 
-Install spnav with pip. Comment the two lines that crash in its __init__ if it fails to load.
+A simple script to use a SpacePilot Pro Mouse as a game input device by simply rerouting button and axis inputs to a uinput device. It should work with other Space Navigator compatible mice with minimal modifications. 
+
+Tested with Python 3.8.1 and on the Linux version of Kerbal Space Program.
+
+# Installing
+
+Install spnav with pip. Comment the two lines that crash in its __init__ file if it fails to load with an undefined symbol.
 
 Install uinput with pip, and load the kernel module modprobe uinput
 
@@ -7,6 +13,4 @@ Start the spacenavd service.
 
 Execute the bridge: python bind.py
 
-Tested with Python 3.8.1
-
-For KSP, the bridge must be started before the game, else it doesn't register
+For KSP, the bridge must be started before the game, else it doesn't detect the game device
