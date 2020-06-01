@@ -21,21 +21,17 @@ buts = [
     uinput.BTN_TL, # 3
     uinput.BTN_TL2, # 4
     uinput.BTN_TR2, # 5
-    uinput.BTN_NORTH, # ESC
-    uinput.BTN_SOUTH, # ALT
-    uinput.BTN_EAST, # SHIFT
-    uinput.BTN_WEST, # CTRL
+    uinput.BTN_BASE6, # ESC
+    uinput.BTN_TRIGGER, # ALT
+    uinput.BTN_THUMB2, # SHIFT
+    uinput.BTN_THUMB, # CTRL
     uinput.BTN_BASE, # Lock rot
     uinput.BTN_BASE2, # Lock trans
     uinput.BTN_BASE3, # Lock dominant
     uinput.BTN_BASE4, # +
     uinput.BTN_BASE5, # -
-    # uinput.BTN_THUMB, # uinput.BTN_0, # X 1
-    # uinput.BTN_TRIGGER, # uinput.BTN_7,
-    # uinput.BTN_BASE6, # 22 # OK
     # uinput.BTN_TOP, # ----
     # uinput.BTN_TOP2, # ---- OK
-    # uinput.BTN_THUMB2, # OK
 ]
 
 axis = [uinput.ABS_X, uinput.ABS_Y, uinput.ABS_Z, uinput.ABS_RX, uinput.ABS_RY, uinput.ABS_RZ]
